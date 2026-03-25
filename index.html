@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeadMachine — 50 à 100 Prospects Qualifiés Chaque Mois</title>
+    <meta name="description" content="Recevez chaque mois une liste de prospects qualifiés dans votre zone et votre secteur. Fini la prospection à l'aveugle.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #2563eb; --primary-dark: #1d4ed8; --dark: #0f172a; --gray: #64748b; --light: #f8fafc; --white: #ffffff; --green: #10b981; --orange: #f59e0b; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--dark); line-height: 1.6; background: var(--white); }
+        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 80px 20px 100px; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(37,99,235,0.1) 0%, transparent 50%); animation: pulse 8s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+        .badge { display: inline-block; background: rgba(37,99,235,0.2); border: 1px solid rgba(37,99,235,0.4); color: #93c5fd; padding: 6px 16px; border-radius: 20px; font-size: 14px; margin-bottom: 24px; font-weight: 500; }
+        .hero h1 { font-size: clamp(32px, 5vw, 56px); font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        .hero h1 span { color: #60a5fa; }
+        .hero p { font-size: 18px; color: #94a3b8; max-width: 600px; margin: 0 auto 32px; }
+        .cta-btn { display: inline-block; background: var(--primary); color: white; padding: 16px 40px; border-radius: 8px; text-decoration: none; font-size: 18px; font-weight: 700; transition: all 0.3s; border: none; cursor: pointer; }
+        .cta-btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,99,235,0.4); }
+        .cta-sub { display: block; margin-top: 12px; font-size: 14px; color: #64748b; }
+        .social-proof { background: var(--light); padding: 20px; text-align: center; border-bottom: 1px solid #e2e8f0; }
+        .social-proof p { color: var(--gray); font-size: 14px; }
+        .social-proof strong { color: var(--dark); }
+        .problem { padding: 80px 20px; max-width: 800px; margin: 0 auto; }
+        .problem h2 { font-size: 32px; text-align: center; margin-bottom: 40px; font-weight: 700; }
+        .problem-list { list-style: none; display: grid; gap: 16px; }
+        .problem-list li { display: flex; align-items: flex-start; gap: 12px; padding: 16px 20px; background: #fef2f2; border-radius: 8px; border-left: 4px solid #ef4444; font-size: 16px; }
+        .problem-list li .icon { font-size: 20px; flex-shrink: 0; }
+        .solution { padding: 80px 20px; background: var(--light); }
+        .solution-inner { max-width: 900px; margin: 0 auto; }
+        .solution h2 { font-size: 32px; text-align: center; margin-bottom: 16px; font-weight: 700; }
+        .solution .subtitle { text-align: center; color: var(--gray); font-size: 18px; margin-bottom: 48px; }
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+        .step { background: white; padding: 32px 24px; border-radius: 12px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+        .step-number { display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; background: var(--primary); color: white; border-radius: 50%; font-size: 20px; font-weight: 700; margin-bottom: 16px; }
+        .step h3 { font-size: 18px; margin-bottom: 8px; }
+        .step p { color: var(--gray); font-size: 15px; }
+        .features { padding: 80px 20px; max-width: 900px; margin: 0 auto; }
+        .features h2 { font-size: 32px; text-align: center; margin-bottom: 48px; font-weight: 700; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+        .feature { padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; transition: all 0.3s; }
+        .feature:hover { border-color: var(--primary); box-shadow: 0 4px 20px rgba(37,99,235,0.1); }
+        .feature .icon { font-size: 32px; margin-bottom: 12px; }
+        .feature h3 { font-size: 17px; margin-bottom: 8px; }
+        .feature p { color: var(--gray); font-size: 15px; }
+        .pricing { padding: 80px 20px; background: var(--light); text-align: center; }
+        .pricing h2 { font-size: 32px; margin-bottom: 16px; font-weight: 700; }
+        .pricing .subtitle { color: var(--gray); font-size: 18px; margin-bottom: 40px; }
+        .price-card { max-width: 440px; margin: 0 auto; background: white; border-radius: 16px; padding: 40px 32px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); border: 2px solid var(--primary); position: relative; }
+        .price-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 4px 20px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+        .price { font-size: 56px; font-weight: 800; color: var(--dark); }
+        .price span { font-size: 18px; color: var(--gray); font-weight: 400; }
+        .price-features { list-style: none; margin: 28px 0; text-align: left; }
+        .price-features li { padding: 10px 0; border-bottom: 1px solid #f1f5f9; font-size: 15px; display: flex; align-items: center; gap: 10px; }
+        .price-features li .check { color: var(--green); font-weight: bold; font-size: 18px; }
+        .faq { padding: 80px 20px; max-width: 700px; margin: 0 auto; }
+        .faq h2 { font-size: 32px; text-align: center; margin-bottom: 40px; font-weight: 700; }
+        .faq-item { border-bottom: 1px solid #e2e8f0; padding: 20px 0; }
+        .faq-item h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; cursor: pointer; }
+        .faq-item p { color: var(--gray); font-size: 15px; }
+        .final-cta { padding: 80px 20px; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); text-align: center; color: white; }
+        .final-cta h2 { font-size: 36px; font-weight: 800; margin-bottom: 16px; }
+        .final-cta p { color: #94a3b8; font-size: 18px; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+        footer { padding: 24px 20px; text-align: center; color: var(--gray); font-size: 13px; border-top: 1px solid #e2e8f0; }
+        @media (max-width: 600px) { .hero { padding: 60px 16px 80px; } .steps { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="badge">Service de prospection automatisé</div>
+            <h1>Recevez <span>50 à 100 prospects</span> qualifiés chaque mois</h1>
+            <p>Fini les heures perdues à chercher des clients. On vous livre une liste prête à l'emploi, adaptée à votre zone et votre secteur.</p>
+            <a href="https://buy.stripe.com/eVqfZ9dH32qA29n8cCbZe01" class="cta-btn">Commencer maintenant</a>
+            <span class="cta-sub">99 €/mois · Sans engagement · Annulable en 1 clic</span>
+        </div>
+    </section>
+    <section class="social-proof">
+        <p>Utilisé par des <strong>artisans</strong>, <strong>coaches</strong>, <strong>consultants</strong> et <strong>commerces locaux</strong> partout en France</p>
+    </section>
+    <section class="problem">
+        <h2>La prospection, c'est votre cauchemar ?</h2>
+        <ul class="problem-list">
+            <li><span class="icon">❌</span> Vous passez des heures sur Google à chercher des contacts, sans résultat concret</li>
+            <li><span class="icon">❌</span> Vous ne savez pas qui contacter ni comment trouver les bons décideurs</li>
+            <li><span class="icon">❌</span> Vous perdez du temps sur des leads non qualifiés qui ne convertissent jamais</li>
+            <li><span class="icon">❌</span> Vous aimeriez prospecter, mais vous préférez vous concentrer sur votre métier</li>
+        </ul>
+    </section>
+    <section class="solution">
+        <div class="solution-inner">
+            <h2>Comment ça marche ?</h2>
+            <p class="subtitle">Un processus simple en 3 étapes</p>
+            <div class="steps">
+                <div class="step"><div class="step-number">1</div><h3>Dites-nous votre cible</h3><p>Votre secteur d'activité, votre zone géographique et le type de client que vous recherchez.</p></div>
+                <div class="step"><div class="step-number">2</div><h3>On trouve vos prospects</h3><p>Notre système scanne les annuaires professionnels et données publiques pour identifier les meilleurs contacts.</p></div>
+                <div class="step"><div class="step-number">3</div><h3>Recevez votre liste</h3><p>Chaque mois, vous recevez un fichier CSV avec 50 à 100 prospects qualifiés, prêts à être contactés.</p></div>
+            </div>
+        </div>
+    </section>
+    <section class="features">
+        <h2>Ce que vous recevez chaque mois</h2>
+        <div class="feature-grid">
+            <div class="feature"><div class="icon">📋</div><h3>50 à 100 contacts qualifiés</h3><p>Nom de l'entreprise, activité, adresse, téléphone et email quand disponible.</p></div>
+            <div class="feature"><div class="icon">🎯</div><h3>Ciblage sur mesure</h3><p>Filtré par secteur d'activité, localisation et taille d'entreprise selon vos critères.</p></div>
+            <div class="feature"><div class="icon">📦</div><h3>Format CSV prêt à l'emploi</h3><p>Importable directement dans votre CRM, Excel ou Google Sheets.</p></div>
+            <div class="feature"><div class="icon">🔄</div><h3>Nouveaux prospects chaque mois</h3><p>Jamais de doublons. Chaque livraison est composée de contacts inédits.</p></div>
+            <div class="feature"><div class="icon">⚡</div><h3>Livraison rapide</h3><p>Votre première liste livrée sous 48h après votre inscription.</p></div>
+            <div class="feature"><div class="icon">🔒</div><h3>Données 100% légales</h3><p>Uniquement des données publiquement accessibles (annuaires, registres officiels).</p></div>
+        </div>
+    </section>
+    <section class="pricing" id="pricing">
+        <h2>Un seul tarif, tout inclus</h2>
+        <p class="subtitle">Pas de frais cachés, pas d'engagement</p>
+        <div class="price-card">
+            <div class="price-badge">Le plus populaire</div>
+            <div class="price">99€ <span>/mois</span></div>
+            <ul class="price-features">
+                <li><span class="check">✓</span> 50 à 100 prospects qualifiés par mois</li>
+                <li><span class="check">✓</span> Ciblage personnalisé (secteur + zone)</li>
+                <li><span class="check">✓</span> Fichier CSV livré par email</li>
+                <li><span class="check">✓</span> Aucun doublon d'un mois à l'autre</li>
+                <li><span class="check">✓</span> Première livraison sous 48h</li>
+                <li><span class="check">✓</span> Support par email</li>
+                <li><span class="check">✓</span> Sans engagement — annulable en 1 clic</li>
+            </ul>
+            <a href="https://buy.stripe.com/eVqfZ9dH32qA29n8cCbZe01" class="cta-btn" style="width:100%;text-align:center;">S'abonner à LeadMachine</a>
+        </div>
+    </section>
+    <section class="faq">
+        <h2>Questions fréquentes</h2>
+        <div class="faq-item"><h3>D'où viennent les données ?</h3><p>Nous utilisons exclusivement des sources publiques : annuaires professionnels, registres d'entreprises (INSEE, Pages Jaunes, etc.) et sites web publics. Tout est conforme au RGPD.</p></div>
+        <div class="faq-item"><h3>Quand est-ce que je reçois ma première liste ?</h3><p>Sous 48 heures après votre inscription, vous recevrez un email pour préciser vos critères de ciblage, puis votre première liste dans la foulée.</p></div>
+        <div class="faq-item"><h3>Est-ce que je peux changer mes critères ?</h3><p>Oui, chaque mois vous pouvez ajuster votre ciblage (zone géographique, secteur, taille d'entreprise).</p></div>
+        <div class="faq-item"><h3>Comment annuler ?</h3><p>En un clic depuis votre espace Stripe, ou par simple email. Pas de questions, pas de frais.</p></div>
+        <div class="faq-item"><h3>Ça marche pour quel type d'entreprise ?</h3><p>Artisans, consultants, coaches, agences, commerces locaux, prestataires B2B... Tout professionnel qui a besoin de trouver de nouveaux clients.</p></div>
+    </section>
+    <section class="final-cta">
+        <h2>Arrêtez de chercher vos clients.<br>Laissez-les venir à vous.</h2>
+        <p>Rejoignez LeadMachine et recevez votre première liste de prospects sous 48h.</p>
+        <a href="https://buy.stripe.com/eVqfZ9dH32qA29n8cCbZe01" class="cta-btn">Démarrer maintenant — 99€/mois</a>
+        <span class="cta-sub">Sans engagement · Satisfait ou remboursé 7 jours</span>
+    </section>
+    <footer>© 2026 LeadMachine. Tous droits réservés. Données issues de sources publiques, conformes RGPD.</footer>
+</body>
+</html>
